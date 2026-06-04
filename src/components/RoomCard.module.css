@@ -1,0 +1,142 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.occupied {
+  border-color: #9FE1CB;
+}
+
+.alert {
+  border-color: #F5C4B3;
+}
+
+.topBar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.occupied .topBar {
+  background: var(--green);
+}
+
+.alert .topBar {
+  background: var(--red);
+}
+
+.roomName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.sensors {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sensorRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sensorLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.icon {
+  font-size: 0.95rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.01em;
+}
+
+.badgeLoading {
+  font-size: 0.72rem;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.badgeOn {
+  background: var(--green-bg);
+  color: var(--green-text);
+}
+
+.badgeOff {
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+.badgeOpen {
+  background: var(--red-bg);
+  color: var(--red-text);
+}
+
+.badgeMaybe {
+  background: var(--amber-bg);
+  color: var(--amber-text);
+}
+
+.badgeReserved {
+  background: var(--blue-bg);
+  color: var(--blue-text);
+}
+
+.reservedCard {
+  border-color: #B6D4F5;
+}
+
+.reservedCard .topBar {
+  background: var(--blue);
+}
+
+.footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+}
+
+.occupiedTag {
+  color: var(--green-text);
+  font-weight: 600;
+}
+
+.reservedTag {
+  color: var(--blue-text);
+  font-weight: 600;
+}
+
+.freeTag {
+  color: var(--text-muted);
+}
