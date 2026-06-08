@@ -53,7 +53,6 @@
 }
 .logoutBtn:hover { background: var(--surface-2); }
 
-/* Stats */
 .statsRow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -87,7 +86,6 @@
 .red   { color: var(--red); }
 .amber { color: var(--amber); }
 
-/* Filters */
 .filterRow {
   display: flex;
   align-items: center;
@@ -105,7 +103,7 @@
   color: var(--text-secondary);
   transition: all 0.15s;
 }
-.filterBtn:hover { border-color: var(--border-strong); color: var(--text-primary); }
+.filterBtn:hover { border-color: var(--border-strong);}
 
 .filterActive {
   background: var(--text-primary);
@@ -127,7 +125,6 @@
 }
 .search:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-bg); }
 
-/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

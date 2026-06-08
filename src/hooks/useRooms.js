@@ -2,13 +2,12 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { TB_URL } from '../context/AuthContext'
 
 export function useRooms(token) {
-  const [rooms, setRooms] = useState({})   // { deviceId: { id, name, motion, door, light } }
+  const [rooms, setRooms] = useState({})  
   const [deviceIds, setDeviceIds] = useState([])
-  const [wsStatus, setWsStatus] = useState('idle') // idle | connecting | connected | error
+  const [wsStatus, setWsStatus] = useState('idle')
   const wsRef = useRef(null)
   const reconnectTimer = useRef(null)
 
-  // ─── 1. Fetch all devices ───────────────────────────────────────────────────
   useEffect(() => {
     if (!token) return
 
@@ -28,11 +27,7 @@ export function useRooms(token) {
           page++
         }
 
-        // Filter only BuildingA devices
-        const filtered = all.filter(
-          (d) => d.type === 'BuildingA' || d.label?.match(/^A-\d+$/)
-        )
-        const devices = filtered.length > 0 ? filtered : all
+        const devices = all
 
         const ids = devices.map((d) => d.id.id)
         const initialRooms = {}
@@ -57,7 +52,6 @@ export function useRooms(token) {
     fetchDevices()
   }, [token])
 
-  // ─── 2. Open WebSocket once we have device IDs ─────────────────────────────
   const connect = useCallback(() => {
     if (!token || deviceIds.length === 0) return
 

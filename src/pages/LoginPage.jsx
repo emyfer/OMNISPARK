@@ -16,8 +16,7 @@ export default function LoginPage() {
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <div className={styles.logo}>
-          <h1 className={styles.title}>Building A</h1>
-          <p className={styles.subtitle}>OMNISPARK</p>
+          <h1 className={styles.subtitle}>OMNISPARK</h1>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
