@@ -3,6 +3,8 @@ import { useAuth } from '../context/AuthContext'
 import { useRooms } from '../hooks/useRooms'
 import RoomCard from '../components/RoomCard'
 import styles from './DashboardPage.module.css'
+import { useReservations } from '../context/ReservationContext'
+
 
 const FILTERS = [
   { key: 'all', label: 'Sve' },
@@ -12,6 +14,8 @@ const FILTERS = [
   { key: 'ZgradaA', label: 'Zgrada A' },
   { key: 'Martinovka', label: 'Martinovka' },
   { key: 'ZgradaD', label: 'Zgrada D' },
+  { key: 'reserved', label: 'Rezervirano' },
+
 ]
 
 function StatusPill({ status }) {
@@ -29,6 +33,8 @@ export default function DashboardPage() {
   const { logout } = useAuth()
   const { token } = useAuth()
   const { rooms, stats, wsStatus } = useRooms(token)
+  const { isReserved } = useReservations()
+
 
   const [filter, setFilter] = useState('all')
   const [search, setSearch] = useState('')
@@ -48,9 +54,10 @@ export default function DashboardPage() {
         if (filter === 'ZgradaA') return r.name.startsWith('A-')
         if (filter === 'Martinovka') return r.name.startsWith('M')
         if (filter === 'ZgradaD') return r.name.startsWith('D')
+        if (filter === 'reserved') return isReserved(r.name)
         return true
       })
-  }, [rooms, filter, search])
+  }, [rooms, filter, search, isReserved])
 
   return (
     <div className={styles.page}>

@@ -4,7 +4,7 @@ import styles from './LoginPage.module.css'
 
 export default function LoginPage() {
   const { login, loading, error } = useAuth()
-  const [username, setUsername] = useState(import.meta.env.VITE_DEFAULT_USER ?? 'student@studenti.hr')
+  const [username, setUsername] = useState(import.meta.env.VITE_DEFAULT_USER)
   const [password, setPassword] = useState('')
 
   const handleSubmit = (e) => {
