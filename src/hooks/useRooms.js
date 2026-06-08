@@ -94,8 +94,7 @@ export function useRooms(token) {
           }
         })
       } catch (e) {
-        // ignore malformed messages
-      }
+        console.error('Greška ', e)}
     }
 
     ws.onclose = () => {
@@ -117,7 +116,6 @@ export function useRooms(token) {
     }
   }, [connect, deviceIds])
 
-  // ─── 3. Derived summary stats ───────────────────────────────────────────────
   const roomList = Object.values(rooms)
   const stats = {
     total: roomList.length,
