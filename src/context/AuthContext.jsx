@@ -2,10 +2,9 @@ import { createContext, useContext, useState, useCallback } from 'react'
 
 const AuthContext = createContext(null)
 
-export const TB_URL = import.meta.env.VITE_TB_URL ?? 'http://161.53.133.253:8080'
-
+export const TB_URL = import.meta.env.VITE_TB_URL 
 const EMAIL_MAP = {
-  'student@studenti.hr': import.meta.env.VITE_TB_ADMIN_USER ?? 'matej.simek@fer.hr',
+  'student@studenti.hr': import.meta.env.VITE_TB_ADMIN_USER 
 }
 
 export function AuthProvider({ children }) {
