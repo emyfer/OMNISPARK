@@ -5,18 +5,18 @@ import RoomCard from '../components/RoomCard'
 import styles from './DashboardPage.module.css'
 
 const FILTERS = [
-  { key: 'all',      label: 'Sve' },
+  { key: 'all', label: 'Sve' },
   { key: 'occupied', label: 'Zauzeto' },
-  { key: 'door',     label: 'Vrata otvorena' },
-  { key: 'light',    label: 'Svjetlo uključeno' },
+  { key: 'door', label: 'Vrata otvorena' },
+  { key: 'light', label: 'Svjetlo uključeno' },
 ]
 
 function StatusPill({ status }) {
   const map = {
-    idle:       { label: 'Čekanje',      cls: styles.pillAmber },
-    connecting: { label: 'Spajanje…',    cls: styles.pillAmber },
-    connected:  { label: '● Live',       cls: styles.pillGreen },
-    error:      { label: 'Greška — ponovni pokušaj', cls: styles.pillRed },
+    idle: { label: 'Čekanje', cls: styles.pillAmber },
+    connecting: { label: 'Spajanje…', cls: styles.pillAmber },
+    connected: { label: 'Live', cls: styles.pillGreen },
+    error: { label: 'Greška', cls: styles.pillRed },
   }
   const { label, cls } = map[status] ?? map.idle
   return <span className={`${styles.pill} ${cls}`}>{label}</span>
@@ -40,19 +40,17 @@ export default function DashboardPage() {
       .filter((r) => {
         if (search && !r.name.toLowerCase().includes(search.toLowerCase())) return false
         if (filter === 'occupied') return r.motion === true
-        if (filter === 'door')     return r.door   === true
-        if (filter === 'light')    return r.light  === true
+        if (filter === 'door') return r.door   === true
+        if (filter === 'light') return r.light  === true
         return true
       })
   }, [rooms, filter, search])
 
   return (
     <div className={styles.page}>
-      {/* ── Header ── */}
       <header className={styles.header}>
         <div>
           <h1 className={styles.heading}>Building A</h1>
-          <p className={styles.subheading}>Monitor prostorija</p>
         </div>
         <div className={styles.headerRight}>
           <StatusPill status={wsStatus} />
@@ -60,7 +58,6 @@ export default function DashboardPage() {
         </div>
       </header>
 
-      {/* ── Summary stats ── */}
       <div className={styles.statsRow}>
         <div className={styles.stat}>
           <span className={styles.statVal}>{stats.total}</span>
@@ -80,7 +77,6 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* ── Filter bar ── */}
       <div className={styles.filterRow}>
         {FILTERS.map((f) => (
           <button
@@ -100,7 +96,6 @@ export default function DashboardPage() {
         />
       </div>
 
-      {/* ── Grid ── */}
       {roomList.length === 0 ? (
         <div className={styles.empty}>
           {Object.keys(rooms).length === 0

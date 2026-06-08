@@ -29,7 +29,6 @@ export default function LoginPage() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              autoComplete="username"
             />
           </div>
 
@@ -41,15 +40,13 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              autoComplete="current-password"
             />
           </div>
 
           {error && <p className={styles.error}>{error}</p>}
 
-          <button type="submit" className={styles.btn} disabled={loading}>
-            {loading ? 'Spajanje...' : 'Prijava'}
-          </button>
+          <button type="submit" className={styles.btn} >
+          Prijava </button>
         </form>
       </div>
     </div>

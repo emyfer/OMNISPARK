@@ -4,11 +4,11 @@ const ReservationContext = createContext(null)
 
 
 const MOCK_STEPS = [
-  { atMs: 0,     add: ['A-002'],         remove: [] },
+  { atMs: 0, add: ['A-002'], remove: [] },
   { atMs: 10000, add: ['A-301', 'A-302'], remove: [] },
-  { atMs: 15000, add: ['A-101'],          remove: ['A-002'] },
-  { atMs: 22000, add: ['A-205'],          remove: ['A-301'] },
-  { atMs: 28000, add: [],                 remove: ['A-302', 'A-101'] },
+  { atMs: 15000, add: ['A-101'], remove: ['A-002'] },
+  { atMs: 22000, add: ['A-205'], remove: ['A-301'] },
+  { atMs: 28000, add: [], remove: ['A-302', 'A-101'] },
   { atMs: 35000, add: ['A-002', 'A-103'], remove: ['A-205'] },
 ]
 
